@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+			background-image: url('imagetest.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .container {
+            text-align: center;
+        }
+    </style>
+    <title>Don de hassanates</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Appuyez sur le bouton pour laisser une hassana!</h1>
+        <button id="incrementButton">1 clic = 1 hassana</button>
+        <p>Nombre de hassanates : <span id="count">0</span></p>
+    </div>
+
+    <script>
+        const incrementButton = document.getElementById('incrementButton');
+        const countElement = document.getElementById('count');
+        let count = localStorage.getItem('count') || 0;
+
+        countElement.textContent = count;
+
+        incrementButton.addEventListener('click', () => {
+            count++;
+            countElement.textContent = count;
+            localStorage.setItem('count', count);
+        });
+    </script>
+</body>
+</html>
